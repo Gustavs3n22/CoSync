@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* transition: 0.5s ease, color 0.5s ease; */
+}
+
+.sopostavlenije {
+    min-height: 100vh;
+}
+
+.title {
+    display: flex;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin: auto;
+}
+
+.imgTop {
+    height: 46.9333px;
+    width: 117px;
+}
+
+.fa-glasses {
+    margin-bottom: -10px;
+}
+
+#sunIcon {
+    display: block;
+}
+
+.navigation-left {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.navigation-left p {
+    color: #0a56a4
+}
+
+.navigation-right {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.theme-switch i {
+    border: none;
+}
+
+.theme-switch,
+.vision-help {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    color: #0a56a4;
+    border: #0a56a4 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+    width: 60px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.blue-line {
+    padding: 40px;
+    background-color: #0a56a4;
+}
+
+.sopostavlenije {
+    background-color: #fff;
+    width: 85%;
+    border-radius: 10px;
+    margin-top: -30px;
+}
+
+.mark-item {
+    margin: 25px;
+    padding: 5px;
+    background-color: #dde7f2;
+    border-radius: 5px;
+}
+
+.group-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.group-link:hover {
+    transition: 0.5s ease, color 0.5s ease;
+    font-size: 1.55rem;
+}
+
+.dark-mode-purple {
+    background-color: #ab00ea;
+    color: #ab00ea;
+}
+
+.dark-mode-borders {
+    background-color: black;
+    color: white;
+    border-color: #ab00ea;
+}
+
+.dark-mode-borders i,
+.dark-mode-borders p {
+    color: white;
+}
+
+.dark-mode-background {
+    background-color: rgb(12, 21, 34);
+}
+
+.fade-in {
+    animation: fadeIn 0.3s forwards;
+}
+
+.dark-navigation {
+    filter: invert(100%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

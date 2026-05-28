@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/base.css">
+    <title>Сопоставление ведомостей</title>
+</head>
+<body>
+    <div class="title" id="title">
+        <div class="navigation-left">
+            <img class="imgTop" id="imgTop" src="/static/vvsu.svg" alt="SVG">
+            <img class="imgTop" id="imgTopNew" src="/static/ithub.svg" alt="SVG" style="display: none;"/>
+            <p>CoSync</p>
+        </div>
+        <div class="navigation-right" id="navigationRight">
+            <button onclick="toggleTheme()" class="theme-switch" id="themeSwitch">
+                <img id="sunIcon" src="/static/sun-solid-full.svg" alt="SVG" class="fa-solid fa-sun nav-icon">
+                <img id="moonIcon" src="/static/moon-solid-full.svg" alt="SVG" class="fa-solid fa-moon nav-icon" style="display: none;">
+            </button>
+            <button class="vision-help" id="visionHelp">
+                <img id="fa-glasses" src="/static/glasses-solid-full.svg" alt="SVG" class="fa-solid fa-glasses nav-icon">
+            </button>
+        </div>
+    </div>
+    <div class="blue-line" id="blueLine"></div>
+    <div class="main-content" id="mainContent">
+        <div class="sopostavlenije" id="sopostavlenije">
+            <div class="content-sopostavlenije">
+                {% for group in groups_table %}
+                    <div id="markItem" class="mark-item group-item">
+                        <a class="group-link" href="/marks?group_name={{ group.group_name }}">{{ group.group_name }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/base.js"></script>
+</html>

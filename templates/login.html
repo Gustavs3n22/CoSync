@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/login_extra.css">
+    <title>Сопоставление ведомостей</title>
+</head>
+<body>
+    <div class="title" id="title">
+        <div class="navigation-left">
+            <img class="imgTop" id="imgTop" src="/static/vvsu.svg" alt="SVG">
+            <img class="imgTop" id="imgTopNew" src="/static/ithub.svg" alt="SVG" style="display: none;"/>
+            <p>CoSync</p>
+        </div>
+        <div class="navigation-right" id="navigationRight">
+            <button onclick="toggleTheme()" class="theme-switch" id="themeSwitch">
+                <img id="sunIcon" src="/static/sun-solid-full.svg" alt="SVG" class="fa-solid fa-sun nav-icon">
+                <img id="moonIcon" src="/static/moon-solid-full.svg" alt="SVG" class="fa-solid fa-moon nav-icon" style="display: none;">
+            </button>
+            <button class="vision-help" id="visionHelp">
+                <img id="fa-glasses" src="/static/glasses-solid-full.svg" alt="SVG" class="fa-solid fa-glasses nav-icon">
+            </button>
+        </div>
+    </div>
+    <div class="blue-line" id="blueLine"></div>
+    <div class="main-content" id="mainContent">
+        <div class="sopostavlenije" id="sopostavlenije">
+            <div class="content-sopostavlenije">
+                <div class="container">
+                    <div class="center">
+                        <h1>Вход</h1>
+                        <form id="loginForm" action="/groups" method="GET">
+                            <div class="txt_field">
+                                <input id="login" type="text" name="text" required>
+                                <span></span>
+                                <label>Почта</label>
+                            </div>
+                            <div class="txt_field">
+                                <input id="password" type="password" name="password" required>
+                                <span></span>
+                                <label>Пароль</label>
+                            </div>
+                            <input id="inputLogin" class="input-login" name="submit" type="Submit" value="Войти">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/login_extra.js"></script>
+</html>
