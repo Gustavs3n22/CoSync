@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/mesh/base.css">
+    <link rel="stylesheet" href="/static/mesh/mapping_extra.css">
+    <title>Сопоставление ведомостей</title>
+</head>
+<body>
+    <div class="title" id="title">
+        <div class="navigation-left">
+            <p>CoSync</p>
+        </div>
+        <div class="navigation-right" id="navigationRight">
+            <button onclick="toggleTheme()" class="theme-switch" id="themeSwitch">
+                <img id="sunIcon" src="/static/images/sun-solid-full.svg" alt="SVG" class="fa-solid fa-sun nav-icon">
+                <img id="moonIcon" src="/static/images/moon-solid-full.svg" alt="SVG" class="fa-solid fa-moon nav-icon" style="display: none;">
+            </button>
+        </div>
+    </div>
+    <div class="blue-line" id="blueLine"></div>
+    <div class="main-content" id="mainContent">
+        <div class="sopostavlenije" id="sopostavlenije">
+            <div class="content-sopostavlenije">
+                
+                <div class="page-menu">
+                <form action="/map" method="post" class="form">
+                <div class="txt_field">
+                    <input id="code_ithub" type="text" name="code_dis" required>
+                    <label>Код предмета колледж</label>
+                </div>
+                <div class="txt_field">
+                    <input id="vvsu_id" type="text" name="vvsu_id_dis" required>
+                    <label>Код предмета вуз</label>
+                </div>
+                <input class="input-login" name="submit" type="submit" value="Добавить связку">
+                {% if error %}
+                    <label>Ошибка: {{ error }}</label>
+                {% endif %}
+                </form>
+                    <div class="txt_field search-field">
+                        <input id="mappingSearch" class="text" type="search">
+                        <label>Искать во всех значениях</label>
+                    </div>
+                </div>
+
+                {% for mapping in mappings_table %}
+                    <div id="markItem" class="mark-item">
+                        <div>
+                            {{ mapping.ithub_name }}
+                            {{ mapping.code_dis }}
+                        </div>
+                        <div>
+                            {{ mapping.vvsu_name }}
+                            {{ mapping.vvsu_id }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/mesh/base.js"></script>
+</html>

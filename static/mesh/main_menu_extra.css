@@ -1,0 +1,20 @@
+.center {
+    width: max-content;
+}
+
+.center h1 {
+    margin-bottom: 10px;
+}
+
+.center a {
+    padding: 25px;
+    text-decoration: none;
+    color: #2691d9;
+}
+
+.links {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

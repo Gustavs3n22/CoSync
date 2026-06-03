@@ -108,3 +108,16 @@ input[type="Submit"]{
   color: black;
   transition: .5s;
 }
+
+.dark-navigation {
+    filter: invert(100%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

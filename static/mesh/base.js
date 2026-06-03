@@ -13,21 +13,15 @@ else {
 function toggleThemeInstant() {
     var topline = document.getElementById("title");
     var themeSwitch = document.getElementById("themeSwitch");
-    var vision = document.getElementById("visionHelp");
-    var visionhelp = document.getElementById("fa-glasses");
     var blueline = document.getElementById("blueLine");
     var maincontent = document.getElementById("mainContent");
     var sopostavlenije = document.getElementById("sopostavlenije");
-    var imgtop = document.getElementById("imgTop");
-    var imgtopNew = document.getElementById("imgTopNew");
     var sunicon = document.getElementById("sunIcon");
     var moonicon = document.getElementById("moonIcon");
     var items = document.querySelectorAll("#markItem");
 
     topline.classList.toggle("dark-mode-borders");
     themeSwitch.classList.toggle("dark-mode-borders");
-    vision.classList.toggle("dark-mode-borders");
-    visionhelp.classList.toggle("dark-navigation");
     moonicon.classList.toggle("dark-navigation");
     blueline.classList.toggle("dark-mode-purple");
     maincontent.classList.toggle("dark-mode-background");
@@ -35,18 +29,6 @@ function toggleThemeInstant() {
     items.forEach((el) => {
         el.classList.toggle('dark-mode-background');
     });
-
-    if (imgtop.style.display === "none") {
-        imgtop.style.display = "block";
-        imgtopNew.style.display = "none";
-        imgtop.classList.add("fade-in");
-        setTimeout(() => imgtop.classList.remove("fade-in"), 300);
-    } else {
-        imgtop.style.display = "none";
-        imgtopNew.style.display = "block";
-        imgtopNew.classList.add("fade-in");
-        setTimeout(() => imgtopNew.classList.remove("fade-in"), 300);
-    }
 
     if (sunicon.style.display === "none") {
         sunicon.style.display = "block";
@@ -68,21 +50,15 @@ function toggleTheme() {
 
     var topline = document.getElementById("title");
     var themeSwitch = document.getElementById("themeSwitch");
-    var vision = document.getElementById("visionHelp");
-    var visionhelp = document.getElementById("fa-glasses");
     var blueline = document.getElementById("blueLine");
     var maincontent = document.getElementById("mainContent");
     var sopostavlenije = document.getElementById("sopostavlenije");
-    var imgtop = document.getElementById("imgTop");
-    var imgtopNew = document.getElementById("imgTopNew");
     var sunicon = document.getElementById("sunIcon");
     var moonicon = document.getElementById("moonIcon");
     var items = document.querySelectorAll("#markItem");
 
     topline.classList.toggle("dark-mode-borders");
     themeSwitch.classList.toggle("dark-mode-borders");
-    vision.classList.toggle("dark-mode-borders");
-    visionhelp.classList.toggle("dark-navigation");
     moonicon.classList.toggle("dark-navigation");
     blueline.classList.toggle("dark-mode-purple");
     maincontent.classList.toggle("dark-mode-background");
@@ -90,18 +66,6 @@ function toggleTheme() {
     items.forEach((el) => {
         el.classList.toggle('dark-mode-background');
     });
-
-    if (imgtop.style.display === "none") {
-        imgtop.style.display = "block";
-        imgtopNew.style.display = "none";
-        imgtop.classList.add("fade-in");
-        setTimeout(() => imgtop.classList.remove("fade-in"), 300);
-    } else {
-        imgtop.style.display = "none";
-        imgtopNew.style.display = "block";
-        imgtopNew.classList.add("fade-in");
-        setTimeout(() => imgtopNew.classList.remove("fade-in"), 300);
-    }
 
     if (sunicon.style.display === "none") {
         sunicon.style.display = "block";
@@ -117,3 +81,29 @@ function toggleTheme() {
         allElements.forEach(element => element.style.transition = '');
     }, 600);
 }
+
+const input = document.getElementById('mappingSearch');
+let timeout;
+input.addEventListener('input', () => {
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    const q = input.value.trim().toLowerCase();
+    document.querySelectorAll('.mark-item').forEach(el => {
+      const text = el.innerText.toLowerCase();
+      el.style.display = q === '' || text.includes(q) ? '' : 'none';
+    });
+  }, 150);
+});
+
+const select = document.getElementById('subjects');
+select.addEventListener('change', () => {
+  const val = select.value.toLowerCase();
+  document.querySelectorAll('.mark-item').forEach(el => {
+    if (val === 'all' || val === '') {
+      el.style.display = '';
+      return;
+    }
+    const subjectText = (el.querySelector('.subject')?.innerText || el.innerText).toLowerCase();
+    el.style.display = subjectText.includes(val) ? '' : 'none';
+  });
+});

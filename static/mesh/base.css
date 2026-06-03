@@ -15,7 +15,6 @@
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     align-items: center;
-    justify-content: space-between;
     background-color: #fff;
     padding-left: 15%;
     padding-right: 15%;
@@ -27,18 +26,13 @@
     width: 117px;
 }
 
-.fa-glasses {
-    margin-bottom: -10px;
-}
-
 #sunIcon {
     display: block;
 }
 
 .navigation-left {
     display: flex;
-    justify-content: space-around;
-    width: 30%;
+    margin-right: 5%;
 }
 
 .navigation-left p {
@@ -47,16 +41,13 @@
 
 .navigation-right {
     display: flex;
-    justify-content: space-around;
-    width: 30%;
 }
 
 .theme-switch i {
     border: none;
 }
 
-.theme-switch,
-.vision-help {
+.theme-switch {
     background: none;
     color: inherit;
     border: none;

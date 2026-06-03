@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/mesh/base.css">
+    <link rel="stylesheet" href="/static/mesh/login_extra.css">
+    <link rel="stylesheet" href="/static/mesh/main_menu_extra.css">
     <title>Сопоставление ведомостей</title>
 </head>
 <body>
@@ -23,13 +25,13 @@
     </div>
     <div class="blue-line" id="blueLine"></div>
     <div class="main-content" id="mainContent">
-        <div class="sopostavlenije" id="sopostavlenije">
-            <div class="content-sopostavlenije">
-                {% for group in groups_table %}
-                    <div id="markItem" class="mark-item group-item">
-                        <a class="group-link" href="/marks?group_name={{ group.group_name }}">{{ group.group_name }}</a>
-                    </div>
-                {% endfor %}
+        <div class="sopostavlenije container" id="sopostavlenije">
+            <div class="content-sopostavlenije center">
+                <h1>Куда перейти?</h1>
+                <div id="markItem" class="links">
+                    <a class="txt_field" href="/groups">Выбор группы и просмотр оценок</a><br>
+                    <a class="txt_field" href="/mapping">Редактировать сопоставление дисциплин</a>
+                </div>
             </div>
         </div>
     </div>

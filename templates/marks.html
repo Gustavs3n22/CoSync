@@ -6,23 +6,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/mesh/base.css">
     <title>Сопоставление ведомостей</title>
 </head>
 <body>
     <div class="title" id="title">
         <div class="navigation-left">
-            <img class="imgTop" id="imgTop" src="/static/vvsu.svg" alt="SVG">
-            <img class="imgTop" id="imgTopNew" src="/static/ithub.svg" alt="SVG" style="display: none;"/>
             <p>CoSync</p>
         </div>
         <div class="navigation-right" id="navigationRight">
             <button onclick="toggleTheme()" class="theme-switch" id="themeSwitch">
-                <img id="sunIcon" src="/static/sun-solid-full.svg" alt="SVG" class="fa-solid fa-sun nav-icon">
-                <img id="moonIcon" src="/static/moon-solid-full.svg" alt="SVG" class="fa-solid fa-moon nav-icon" style="display: none;">
-            </button>
-            <button class="vision-help" id="visionHelp">
-                <img id="fa-glasses" src="/static/glasses-solid-full.svg" alt="SVG" class="fa-solid fa-glasses nav-icon">
+                <img id="sunIcon" src="/static/images/sun-solid-full.svg" alt="SVG" class="fa-solid fa-sun nav-icon">
+                <img id="moonIcon" src="/static/images/moon-solid-full.svg" alt="SVG" class="fa-solid fa-moon nav-icon" style="display: none;">
             </button>
         </div>
     </div>
@@ -30,6 +25,18 @@
     <div class="main-content" id="mainContent">
         <div class="sopostavlenije" id="sopostavlenije">
             <div class="content-sopostavlenije">
+
+                <input id="mappingSearch" type="search" placeholder="Искать во всех значениях" autocomplete="off">
+                <label for="subjects">Выбрать предмет</label>
+                <select id="subjects" name="subjects">
+                    <option value="all">Все</option>
+                {% for subject in subjects %}
+                    <option value="{{ subject.name_dis }}">
+                    {{ subject.name_dis }}
+                    </option>
+                {% endfor %}
+                </select>
+
                 {% for mark in marks_table %}
                     <div id="markItem" class="mark-item">
                         <div>{{ mark.stud_full_name }}</div>
@@ -47,5 +54,5 @@
         </div>
     </div>
 </body>
-<script src="/static/base.js"></script>
+<script src="/static/mesh/base.js"></script>
 </html>

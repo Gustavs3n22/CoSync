@@ -13,13 +13,9 @@ else {
 function toggleThemeInstant() {
     var topline = document.getElementById("title")
     var theme = document.getElementById("themeSwitch")
-    var vision = document.getElementById("visionHelp")
-    var visionhelp = document.getElementById("fa-glasses")
     var blueline = document.getElementById("blueLine")
     var maincontent = document.getElementById("mainContent")
     var sopostavlenije = document.getElementById("sopostavlenije")
-    var imgtop = document.getElementById("imgTop");
-    var imgtopNew = document.getElementById("imgTopNew");
     var sunicon = document.getElementById("sunIcon");
     var moonicon = document.getElementById("moonIcon");
     var item = document.querySelectorAll("#markItem");
@@ -31,8 +27,6 @@ function toggleThemeInstant() {
 
     topline.classList.toggle("dark-mode-borders");
     theme.classList.toggle("dark-mode-borders");
-    vision.classList.toggle("dark-mode-borders")
-    visionhelp.classList.toggle("dark-navigation");
     moonicon.classList.toggle("dark-navigation")
     blueline.classList.toggle("dark-mode-purple");
     maincontent.classList.toggle("dark-mode-background");
@@ -45,18 +39,6 @@ function toggleThemeInstant() {
     item.forEach((el) => {
         el.classList.toggle('dark-mode-background');
     });
-    
-    if (imgtop.style.display === "none") {
-        imgtop.style.display = "block";
-        imgtopNew.style.display = "none";
-        imgtop.classList.add("fade-in");
-        setTimeout(() => imgtop.classList.remove("fade-in"), 300);
-    } else {
-        imgtop.style.display = "none";
-        imgtopNew.style.display = "block";
-        imgtopNew.classList.add("fade-in");
-        setTimeout(() => imgtopNew.classList.remove("fade-in"), 300);
-    }
 
     if (sunicon.style.display === "none") {
         sunicon.style.display = "block";
@@ -78,13 +60,9 @@ function toggleTheme() {
 
     var topline = document.getElementById("title")
     var theme = document.getElementById("themeSwitch")
-    var vision = document.getElementById("visionHelp")
-    var visionhelp = document.getElementById("fa-glasses")
     var blueline = document.getElementById("blueLine")
     var maincontent = document.getElementById("mainContent")
     var sopostavlenije = document.getElementById("sopostavlenije")
-    var imgtop = document.getElementById("imgTop");
-    var imgtopNew = document.getElementById("imgTopNew");
     var sunicon = document.getElementById("sunIcon");
     var moonicon = document.getElementById("moonIcon");
     var item = document.querySelectorAll("#markItem");
@@ -96,9 +74,7 @@ function toggleTheme() {
 
     topline.classList.toggle("dark-mode-borders");
     theme.classList.toggle("dark-mode-borders");
-    vision.classList.toggle("dark-mode-borders")
-    visionhelp.classList.toggle("dark-navigation");
-    moonicon.classList.toggle("dark-navigation")
+    moonicon.classList.toggle("dark-navigation");
     blueline.classList.toggle("dark-mode-purple");
     maincontent.classList.toggle("dark-mode-background");
     login_form.classList.toggle("dark-mode-background");
@@ -110,18 +86,6 @@ function toggleTheme() {
     item.forEach((el) => {
         el.classList.toggle('dark-mode-background');
     });
-    
-    if (imgtop.style.display === "none") {
-        imgtop.style.display = "block";
-        imgtopNew.style.display = "none";
-        imgtop.classList.add("fade-in");
-        setTimeout(() => imgtop.classList.remove("fade-in"), 300);
-    } else {
-        imgtop.style.display = "none";
-        imgtopNew.style.display = "block";
-        imgtopNew.classList.add("fade-in");
-        setTimeout(() => imgtopNew.classList.remove("fade-in"), 300);
-    }
 
     if (sunicon.style.display === "none") {
         sunicon.style.display = "block";
