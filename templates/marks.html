@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/mesh/base.css">
+    <link rel="stylesheet" href="/static/mesh/marks_extra.css">
     <title>Сопоставление ведомостей</title>
 </head>
 <body>
@@ -26,16 +27,18 @@
         <div class="sopostavlenije" id="sopostavlenije">
             <div class="content-sopostavlenije">
 
-                <input id="mappingSearch" type="search" placeholder="Искать во всех значениях" autocomplete="off">
-                <label for="subjects">Выбрать предмет</label>
-                <select id="subjects" name="subjects">
-                    <option value="all">Все</option>
-                {% for subject in subjects %}
-                    <option value="{{ subject.name_dis }}">
-                    {{ subject.name_dis }}
-                    </option>
-                {% endfor %}
-                </select>
+                <div class="filters">
+                    <input id="mappingSearch" type="search" placeholder="Искать во всех значениях" autocomplete="off">
+                    <label class="label-subjects" for="subjects">Выбрать предмет</label>
+                    <select id="subjects" name="subjects">
+                        <option value="all">Все</option>
+                    {% for subject in subjects %}
+                        <option value="{{ subject.name_dis }}">
+                        {{ subject.name_dis }}
+                        </option>
+                    {% endfor %}
+                    </select>
+                </div>
 
                 {% for mark in marks_table %}
                     <div id="markItem" class="mark-item">

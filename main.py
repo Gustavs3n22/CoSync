@@ -6,6 +6,7 @@ from models.student_by_group import get_students_by_group, get_unique_subjects
 from models.get_mappings import get_mappings
 from models.get_groups import get_groups
 from models.map import add_mapping_by_code
+from models.delete_mapping import delete_mapping_by_code
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -65,6 +66,44 @@ async def get_dashboard(request: Request, q: str = Query('', alias='q')):
 async def create_mapping(request: Request, code_dis: str = Form(...), vvsu_id_dis: str = Form(...), q: str = Query('', alias='q')):
     try:
         add_mapping_by_code(code_dis, vvsu_id_dis)
+    except Exception as e:
+        mappings_table = get_mappings()
+        if q:
+            q_lower = q.lower()
+            mappings_table = [
+                m for m in mappings_table
+                if q_lower in (
+                    str(m.get("ithub_name", "")).lower() + " " +
+                    str(m.get("code_dis", "")).lower() + " " +
+                    str(m.get("vvsu_name", "")).lower() + " " +
+                    str(m.get("vvsu_id", "")).lower()
+                )
+            ]
+        return templates.TemplateResponse(
+            request, "mapping.html",
+            {"request": request, "mappings_table": mappings_table, "q": q, "error": e}
+        )
+
+@app.post("/delete")
+async def create_mapping(request: Request, code_dis: str = Form(...), vvsu_id_dis: str = Form(...), q: str = Query('', alias='q')):
+    try:
+        delete_mapping_by_code(code_dis, vvsu_id_dis)
+        mappings_table = get_mappings()
+        if q:
+            q_lower = q.lower()
+            mappings_table = [
+                m for m in mappings_table
+                if q_lower in (
+                    str(m.get("ithub_name", "")).lower() + " " +
+                    str(m.get("code_dis", "")).lower() + " " +
+                    str(m.get("vvsu_name", "")).lower() + " " +
+                    str(m.get("vvsu_id", "")).lower()
+                )
+            ]
+        return templates.TemplateResponse(
+            request, "mapping.html",
+            {"request": request, "mappings_table": mappings_table, "q": q}
+        )
     except Exception as e:
         mappings_table = get_mappings()
         if q:

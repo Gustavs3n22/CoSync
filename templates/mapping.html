@@ -49,17 +49,24 @@
                 </div>
 
                 {% for mapping in mappings_table %}
-                    <div id="markItem" class="mark-item">
-                        <div>
-                            {{ mapping.ithub_name }}
-                            {{ mapping.code_dis }}
-                        </div>
-                        <div>
-                            {{ mapping.vvsu_name }}
-                            {{ mapping.vvsu_id }}
-                        </div>
+                <div id="markItem" class="mark-item">
+                    <div>
+                    {{ mapping.ithub_name }}
+                    {{ mapping.code_dis }}
                     </div>
+                    <div>
+                    {{ mapping.vvsu_name }}
+                    {{ mapping.vvsu_id }}
+                    </div>
+
+                    <form method="post" action="/delete" style="display:inline">
+                    <input type="hidden" name="code_dis" value="{{ mapping.code_dis }}">
+                    <input type="hidden" name="vvsu_id_dis" value="{{ mapping.vvsu_id }}">
+                    <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                    </form>
+                </div>
                 {% endfor %}
+
             </div>
         </div>
     </div>

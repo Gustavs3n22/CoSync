@@ -1,0 +1,11 @@
+.filters {
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+    padding-bottom: 35px;
+    padding-bottom: 0px;
+}
+
+.label-subjects {
+    margin-top: 10px;
+}
